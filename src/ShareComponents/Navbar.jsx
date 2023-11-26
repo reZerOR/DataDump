@@ -1,8 +1,14 @@
 import { NavLink } from "react-router-dom";
 import "../App.css";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
-  const user = false;
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
   const links = (
     <>
       <li>
@@ -23,7 +29,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-project-400">
+    <div className="bg-project-400 fixed w-full">
       <div className="navbar max-w-7xl bg-project-400 mx-auto bg-1">
         <div className="navbar-start">
           <div className="dropdown">
@@ -63,15 +69,10 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <h2>{user.displayName}</h2>
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  {/* <img src={user.photoURL ? user.photoURL : profile} /> */}
-                </div>
-              </label>
+              <p className="mr-2">{user?.displayName}</p>
               <a
-                //   onClick={handleLogOut}
-                className="bg-2  py-2 px-5 rounded-lg hover:bg-3 cursor-pointer"
+                onClick={handleLogOut}
+                className="  py-2 px-5 bg-project-500 hover:bg-project-300 rounded-lg cursor-pointer"
               >
                 SignOut
               </a>
@@ -79,7 +80,7 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink
-                className="bg-2 py-2 px-5 rounded-lg hover:bg-3 cursor-pointer"
+                className="bg-project-300 py-2 px-5 rounded-lg hover:bg-project-500 cursor-pointer"
                 to={"/login"}
               >
                 Login
