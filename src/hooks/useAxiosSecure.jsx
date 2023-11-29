@@ -28,6 +28,7 @@ const useAxiosSecure = () => {
     },
     async function (error) {
       const status = error.response?.status;
+      console.log("hitting error");
 
       // if found 401 or 403 then logout the user
       if (status === 401 || status === 403) {

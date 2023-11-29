@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Headroom from "react-headroom";
 import useProUser from "../hooks/useProUser";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
   const [proUser] = useProUser();
-  console.log(proUser);
+  const [isAdmin] = useAdmin();
+  console.log(proUser, loading, isAdmin);
 
   const handleLogOut = () => {
     logOut().then().catch();
@@ -21,14 +23,16 @@ const Navbar = () => {
       <li>
         <NavLink to={"/allsurvey"}>All Survey</NavLink>
       </li>
-      {!proUser && (
+      {!proUser && user && !isAdmin && (
         <li>
           <NavLink to={"/pro"}>Become Pro</NavLink>
         </li>
       )}
-      <li>
-        <NavLink to={"/dashboard"}>Dashboard</NavLink>
-      </li>
+      {isAdmin && user && (
+        <li>
+          <NavLink to={"/dashboard/manageUsers"}>Dashboard</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to={"/bidrequest"}>Bid Requests</NavLink>
       </li>
@@ -81,6 +85,11 @@ const Navbar = () => {
                   {proUser && (
                     <span className="text-xs bg-project-900 text-white px-1 rounded-full">
                       pro
+                    </span>
+                  )}
+                  {isAdmin && (
+                    <span className="text-xs bg-project-900 text-white px-1 rounded-full">
+                      admin
                     </span>
                   )}
                 </p>

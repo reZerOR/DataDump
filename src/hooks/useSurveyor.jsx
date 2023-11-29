@@ -3,22 +3,22 @@ import { AuthContext } from "../Providers/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
-const useProUser = () => {
+const useSurveyor = () => {
   const { user, loading } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
 
-  const { data: proUser, isPending: isProUserLoading } = useQuery({
-    queryKey: [user?.email, "pro-user"],
+  const { data: isSurveyor, isPending: isSurveyorLoading } = useQuery({
+    queryKey: [user?.email, "surveyor"],
     enabled: !loading,
     queryFn: async () => {
       console.log("checking if user is pro user");
       const res = await axiosSecure.get(
         `/users/pro-and-admin-surveyor/${user?.email}`
       );
-      return res.data?.pro_user;
+      return res.data?.surveyor;
     },
   });
-  return [proUser, isProUserLoading];
+  return [isSurveyor, isSurveyorLoading];
 };
 
-export default useProUser;
+export default useSurveyor;
