@@ -9,13 +9,16 @@ const Dashboard = () => {
   const adminSidenav = (
     <>
       <li>
-        <NavLink to={"admin"}>Admin Dashboard</NavLink>
-      </li>
-      <li>
         <NavLink to={"manageUsers"}>Manage Users</NavLink>
       </li>
       <li>
         <NavLink to={"allpayments"}>All Payments</NavLink>
+      </li>
+      <li>
+        <NavLink to={"surveymanage"}>Survey Manage</NavLink>
+      </li>
+      <li>
+        <NavLink to={"surveyadminresults"}>Survey Results</NavLink>
       </li>
     </>
   );
@@ -26,6 +29,9 @@ const Dashboard = () => {
       </li>
       <li>
         <NavLink to={"UpdateSurvey"}>Feedbacks and Update</NavLink>
+      </li>
+      <li>
+        <NavLink to={"surveyResults"}>Survey Responses</NavLink>
       </li>
     </>
   );

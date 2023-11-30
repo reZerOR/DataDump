@@ -8,7 +8,7 @@ const MostVoted = () => {
   const { data: surveys = [] } = useQuery({
     queryKey: ["survey"],
     queryFn: async () => {
-      const res = await axiosPublic.get("surveys/most-voted");
+      const res = await axiosPublic.get("/surveys/most-voted");
       return res.data;
     },
   });

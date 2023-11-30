@@ -1,8 +1,19 @@
-# React + Vite
+# Gig junction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link : https://datadump-4f599.web.app/
 
-Currently, two official plugins are available:
+### Feature
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. You can login or register in this page.
+2. You can vote on survey.
+3. On voting survey you will be shown a chart.
+4. If you take the pro user pack then you can comment on survey.
+5. Surveyor role user create surveys and admin manage them.
+6. On taking pro user subscription you will be given a badge under your name.
+
+### challenges faced when doing backend
+
+1. I was confuse for how to implement the voting and chart system
+2. How to create api for voting and saving the voting
+3. how count the voting etc,
+4. it was learning path
