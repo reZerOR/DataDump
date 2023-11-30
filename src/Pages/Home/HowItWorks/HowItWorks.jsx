@@ -5,7 +5,7 @@ import { CgTrack } from "react-icons/cg";
 const HowItWorks = () => {
   return (
     <div className="bg-project-500">
-      <h2 className="uppercase text-center py-20 text-4xl font-bold ">
+      <h2 className="uppercase text-center py-20 text-7xl font-bold ">
         how it works
       </h2>
       <div className="pb-20 max-w-7xl mx-auto flex flex-col justify-center gap-6 items-center lg:flex-row lg:justify-around">

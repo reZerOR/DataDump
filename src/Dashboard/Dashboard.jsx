@@ -1,7 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import useAdmin from "../hooks/useAdmin";
+import useSurveyor from "../hooks/useSurveyor";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin();
+  const [isSurveyor] = useSurveyor();
   const adminSidenav = (
     <>
       <li>
@@ -12,6 +16,16 @@ const Dashboard = () => {
       </li>
       <li>
         <NavLink to={"allpayments"}>All Payments</NavLink>
+      </li>
+    </>
+  );
+  const surveyornav = (
+    <>
+      <li>
+        <NavLink to={"addSurvey"}>Add Survey</NavLink>
+      </li>
+      <li>
+        <NavLink to={"UpdateSurvey"}>Feedbacks and Update</NavLink>
       </li>
     </>
   );
@@ -37,7 +51,7 @@ const Dashboard = () => {
         <ul className="menu p-4 w-64 min-h-full bg-project-500 text-base-content">
           {/* Sidebar content here */}
           <p className="text-3xl text-center mb-5 font-bold">DataDump</p>
-          {adminSidenav}
+          {isAdmin ? adminSidenav : isSurveyor && surveyornav}
         </ul>
       </div>
     </div>

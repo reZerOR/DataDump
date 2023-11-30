@@ -2,7 +2,7 @@
 const Faq = () => {
   return (
     <div>
-      <h2 className="uppercase text-center py-20 text-4xl font-bold ">faq?</h2>
+      <h2 className="uppercase text-center py-20 text-7xl font-bold ">faq?</h2>
       <div className="max-w-7xl mb-10 mx-auto p-5 lg:p-0">
         <div className="collapse bg-project-400 p-2 rounded-none collapse-arrow ">
           <input type="radio" name="my-accordion-2" />

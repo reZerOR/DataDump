@@ -10,6 +10,12 @@ import ManageUsers from "../Pages/MangeUsers/ManageUsers";
 import AllPayments from "../Pages/AllPayments/AllPayments";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import AllSurveys from "../Pages/AllSurveys/AllSurveys";
+import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
+import AddSurvey from "../Pages/AddSurvey/AddSurvey";
+import SurveyorRoute from "./SurveyorRoute";
+import UpdateSurvey from "../Pages/UpdateSurvey/UpdateSurvey";
+import UpdateASurvey from "../Pages/UpdateASurvey/UpdateASurvey";
 
 // All routes are here
 const router = createBrowserRouter([
@@ -37,6 +43,14 @@ const router = createBrowserRouter([
           </ProUserRoute>
         ),
       },
+      {
+        path: "/allsurvey",
+        element: <AllSurveys></AllSurveys>,
+      },
+      {
+        path: "/surveyDetails/:id",
+        element: <SurveyDetails></SurveyDetails>,
+      },
     ],
   },
   {
@@ -62,6 +76,31 @@ const router = createBrowserRouter([
           <AdminRoute>
             <AllPayments></AllPayments>
           </AdminRoute>
+        ),
+      },
+      // surveyeor page
+      {
+        path: "addSurvey",
+        element: (
+          <SurveyorRoute>
+            <AddSurvey></AddSurvey>
+          </SurveyorRoute>
+        ),
+      },
+      {
+        path: "updateSurvey",
+        element: (
+          <SurveyorRoute>
+            <UpdateSurvey></UpdateSurvey>
+          </SurveyorRoute>
+        ),
+      },
+      {
+        path: "UpdateASurvey/:id",
+        element: (
+          <SurveyorRoute>
+            <UpdateASurvey></UpdateASurvey>
+          </SurveyorRoute>
         ),
       },
     ],
